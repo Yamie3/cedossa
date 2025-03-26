@@ -26,9 +26,16 @@
 
         <h3>Phone:</h3>
         <p>+265 123 456 789</p>
-        
+
         <h3>Address:</h3>
-        <p>Lilongwe, Malawi</p>
+        <p>Blantyre, Malawi</p>
+
+        <h2>Contact Form</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render form fields here -->
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <footer>

@@ -28,9 +28,16 @@
 
         <h3>Mobile Money</h3>
         <p>Mobile Number: +265 987 654 321</p>
-
-        <h3>PayPal</h3>
-        <p>Donate via PayPal: <a href="https://www.paypal.com/donate">PayPal Cedossa</a></p>
+        
+        <h3>Donate Now</h3>
+        <p>Click the button below to donate via PayPal:</p>
+    
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="business" value="your-paypal-email@example.com">
+            <input type="hidden" name="item_name" value="Cedossa Donation">
+            <input type="hidden" name="currency_code" value="USD">
+            <button type="submit">Donate with PayPal</button>
+        </form>
     </section>
 
     <footer>

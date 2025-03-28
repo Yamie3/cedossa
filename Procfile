@@ -1,1 +1,1 @@
-web: gunicorn cedossa.wsgi --log-file -
+web: waitress-serve --host=0.0.0.0 --port=$PORT cedossa.wsgi:application

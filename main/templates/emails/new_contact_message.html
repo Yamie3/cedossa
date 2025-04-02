@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>New contact form submission on {{ site_name }}</h2>
+    <p><strong>From:</strong> {{ message.name }} &lt;{{ message.email }}&gt;</p>
+    <p><strong>Date:</strong> {{ message.submitted_at|date:"DATETIME_FORMAT" }}</p>
+    <p><strong>Message:</strong></p>
+    <div style="white-space: pre-wrap; padding: 10px; background: #f5f5f5;">
+        {{ message.message }}
+    </div>
+    <p>--<br>{{ site_name }}</p>
+</body>
+</html>

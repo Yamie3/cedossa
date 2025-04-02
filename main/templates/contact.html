@@ -1,11 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDOSSA - Contact Us</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Contact Us</title>
 </head>
 <body>
     <header>
@@ -16,32 +13,16 @@
             <a href="/donate">Donate</a>
         </nav>
     </header>
-
-    <section>
-        <h2>Contact Information</h2>
-        <p>If you have any questions or would like to learn more about our work, feel free to reach out!</p>
-        
-        <h3>Email:</h3>
-        <p>info@cedossa.org</p>
-
-        <h3>Phone:</h3>
-        <p>+265 123 456 789</p>
-
-        <h3>Address:</h3>
-        <p>Blantyre, Malawi</p>
-
-        <h2>Contact Form</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}  <!-- Render form fields here -->
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>Thank you for your interest in Cedossa!</p>
-    </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
+    <h1>Contact Form</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send Message</button>
+    </form>
 </body>
 </html>

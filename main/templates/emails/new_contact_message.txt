@@ -1,0 +1,9 @@
+New contact form submission on {{ site_name }}
+
+From: {{ message.name }} <{{ message.email }}>
+Date: {{ message.submitted_at|date:"DATETIME_FORMAT" }}
+Message:
+{{ message.message }}
+
+--
+{{ site_name }}

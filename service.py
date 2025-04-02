@@ -4,7 +4,7 @@ import win32serviceutil
 import win32event
 import servicemanager
 from waitress import serve
-#from django.core.wsgi import get_wsgi_application
+from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cedossa.settings')
 

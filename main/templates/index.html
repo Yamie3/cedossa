@@ -1,11 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDOSSA - Home</title>
-    {% load static %}
+    <title>Welcome to Cedossa</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
     <header>
         <nav>
             <a href="/">Home</a> | 
@@ -14,11 +16,17 @@
             <a href="/donate">Donate</a>
         </nav>
     </header>
+
+    <section>
+        <h2></h2>
+        <p>Welcome to Centre for Down Syndrome, Sickle Cell and Autism</p>
+
     
-</head>
-<body>
-    <h1>Welcome to CEDOSSA</h1>
-    <p>Supporting children with Down syndrome and Sickle Cell.</p>
+    </section>
+
+    <footer>
+        <p>Thank you for your support!</p>
+    </footer>
 
     <script src="{% static 'js/script.js' %}"></script>
 </body>

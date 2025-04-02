@@ -1,44 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDOSSA - About Us</title>
-    {% load static %}
+    <title>About Us</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <header>
         <nav>
-            <a href="/">Home</a> | 
-            <a href="/about">About</a> | 
-            <a href="/contact">Contact</a> | 
-            <a href="/donate">Donate</a>
+            <!-- In index.html or base.html -->
+<nav>
+    <a href="{% url 'main:home' %}">Home</a>  <!-- Changed from '/home' -->
+    <a href="{% url 'main:about' %}">About</a>
+    <a href="{% url 'main:contact' %}">Contact</a>
+    <a href="{% url 'main:donate' %}">Donate</a>
+</nav>
         </nav>
     </header>
 </head>
 <body>
       <section>
-        <h2>Life Has a Way of Pointing People Towards Their Destinies</h2>
-        <p>Lauryn Sulani, a nurse and founder of the Centre for Down syndrome, Sickle Cell and Autism (Cedossa), was drawn to her mission through personal experience.</p>
+        <h3>Our Mission</h3>
+        <p>To empower persons with Down Syndrome and Autism to enjoy through advocacy, skills development, psychosocial counselling and trainings.</p>
         
-        <h3>The Beginning of Cedossa</h3>
-        <p>Lauryn founded Cedossa in 2021 after her child was diagnosed with Down syndrome. This organization was registered in September 2022 as a non-governmental charity...</p>
-        
-        <!-- Paste Lauryn’s full story here with <p> and <h3> tags to break up sections -->
+        <h3>Our Vision</h3>
+        <p>To ensure persons with Down Syndrome and autism are accepted and enjoying their human rights like anyone else in Malawi.</p>
 
-        <h3>Her Vision for Cedossa</h3>
-        <p>Lauryn’s mission is to ensure individuals with Down syndrome and autism are accepted in society, advocating for their human rights and providing them with skills and empowerment.</p>
+        <h3>Our Goals</h3>
+        <p>reduce infant motarity rate, improve health, education services, awareness and advocating for the rights of people with Down Syndrome and Autism</p>
 
-        <h3>Challenges and Achievements</h3>
-        <p>Despite facing numerous challenges, Lauryn has helped over 120 families and continues to inspire change through Cedossa’s efforts in advocacy, awareness, and providing necessary resources.</p>
-
-        <h3>Looking Forward</h3>
-        <p>Lauryn’s plans include researching Down syndrome and autism prevalence in Malawi and working on influencing government policies for better inclusivity.</p>
-    </section>
+       </section>
 
     <footer>
-        <p>Contact Cedossa: info@cedossa.org | Call us at +265 123 456 789</p>
+        <p>Contact Cedossa: info@cedossa.org | cedosamw@gmail.com | Call us at +265 888 651 928 | +265 999 680 899</p>
     </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

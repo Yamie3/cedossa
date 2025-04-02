@@ -1,12 +1,15 @@
-from django.urls import path, include
-from django.contrib import admin
+from django.urls import path
 from . import views
+from django.conf.urls import handler404
+handler404 = 'main.views.page_not_found'
+
+
+app_name = 'main'  # Namespace for URLs
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'),  # Homepage
-    path('about/', views.about, name='about'),  # About page
-    path('contact/', views.contact, name='contact'),  # Contact page
-    path('donate/', views.donate, name='donate'),  # Donate page
-    path('', include('cedossa.urls')),
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),  # Must match view name
+    path('donate/', views.donate, name='donate'),
+    path('contact/', views.contact, name='contact'),
+    path('contact/success/', views.contact_success, name='contact_success'),
 ]

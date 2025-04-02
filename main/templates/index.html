@@ -5,23 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Cedossa</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}"></link>
 </head>
 <body>
+    <script src="{% static 'js/script.js' %}"></script>
     <header>
         <nav>
-            <a href="/">Home</a> | 
-            <a href="/about">About</a> | 
-            <a href="/contact">Contact</a> | 
-            <a href="/donate">Donate</a>
+            <a href="{% url 'main:home' %}">Home</a>  <!-- Changed from '/home' -->
+            <a href="{% url 'main:about' %}">About</a>
+            <a href="{% url 'main:contact' %}">Contact</a>
+            <a href="{% url 'main:donate' %}">Donate</a>
         </nav>
     </header>
 
     <section>
         <h2></h2>
         <p>Welcome to Centre for Down Syndrome, Sickle Cell and Autism</p>
-
-    
     </section>
 
     <footer>

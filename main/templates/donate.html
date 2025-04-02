@@ -10,10 +10,10 @@
 <body>
     <header>
         <nav>
-            <a href="/">Home</a> | 
-            <a href="/about">About</a> | 
-            <a href="/contact">Contact</a> | 
-            <a href="/donate">Donate</a>
+            <a href="{% url 'main:home' %}">Home</a>  <!-- Changed from '/home' -->
+            <a href="{% url 'main:about' %}">About</a>
+            <a href="{% url 'main:contact' %}">Contact</a>
+            <a href="{% url 'main:donate' %}">Donate</a>
         </nav>
     </header>
 

@@ -4,35 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <header>
-        <nav>
-            <!-- In index.html or base.html -->
-<nav>
-    <a href="{% url 'main:home' %}">Home</a>  <!-- Changed from '/home' -->
-    <a href="{% url 'main:about' %}">About</a>
-    <a href="{% url 'main:contact' %}">Contact</a>
-    <a href="{% url 'main:donate' %}">Donate</a>
-</nav>
-        </nav>
-    </header>
+    <title>About Us - CEDOSSA</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}"> <!-- Optional dedicated CSS -->
 </head>
 <body>
-      <section>
-        <h3>Our Mission</h3>
-        <p>To empower persons with Down Syndrome and Autism to enjoy through advocacy, skills development, psychosocial counselling and trainings.</p>
-        
-        <h3>Our Vision</h3>
-        <p>To ensure persons with Down Syndrome and autism are accepted and enjoying their human rights like anyone else in Malawi.</p>
+    <!-- Header (consistent with index.html) -->
+    <header class="site-header">
+        <nav class="main-navigation">
+            <a href="{% url 'main:home' %}" class="nav-item">Home</a>
+            <a href="{% url 'main:about' %}" class="nav-item active">About</a> <!-- 'active' class for current page -->
+            <a href="{% url 'main:contact' %}" class="nav-item">Contact</a>
+            <a href="{% url 'main:donate' %}" class="nav-item donate-btn">Donate</a>
+        </nav>
+    </header>
 
-        <h3>Our Goals</h3>
-        <p>reduce infant motarity rate, improve health, education services, awareness and advocating for the rights of people with Down Syndrome and Autism</p>
+    <!-- Main Content -->
+    <main class="about-page">
+        <section class="mission-section">
+            <div class="container">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="section-text">To empower persons with Down Syndrome and Autism to thrive through advocacy, skills development, psychosocial counselling and trainings.</p>
+            </div>
+        </section>
 
-       </section>
+        <section class="vision-section">
+            <div class="container">
+                <h2 class="section-title">Our Vision</h2>
+                <p class="section-text">To ensure persons with Down Syndrome and autism are accepted and enjoying their human rights like anyone else in Malawi.</p>
+            </div>
+        </section>
 
-    <footer>
-        <p>Contact Cedossa: info@cedossa.org | cedosamw@gmail.com | Call us at +265 888 651 928 | +265 999 680 899</p>
+        <section class="goals-section">
+            <div class="container">
+                <h2 class="section-title">Our Goals</h2>
+                <ul class="goals-list">
+                    <li>Reduce infant mortality rate</li>
+                    <li>Improve health and education services</li>
+                    <li>Increase awareness and advocacy</li>
+                    <li>Promote rights of people with Down Syndrome and Autism</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <h3 class="footer-title">Contact CEDOSSA</h3>
+            <div class="contact-methods">
+                <p><i class="fas fa-envelope"></i> info@cedossa.org | cedosamw@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +265 888 651 928 | +265 999 680 899</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/about.js' %}"></script> <!-- Optional dedicated JS -->
 </body>
 </html>

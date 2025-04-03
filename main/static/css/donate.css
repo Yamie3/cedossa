@@ -1,0 +1,71 @@
+/* Donation Page Styles */
+.donation-hero {
+    background: #2c7be5;
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.donation-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.donation-method {
+    border: 1px solid #e1e5eb;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.donation-method:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.method-icon {
+    font-size: 2.5rem;
+    color: #2c7be5;
+    margin-bottom: 1rem;
+}
+
+.method-title {
+    color: #2c7be5;
+    margin-bottom: 1.5rem;
+}
+
+.method-details p {
+    margin: 0.8rem 0;
+    text-align: left;
+}
+
+.donate-button {
+    background: #2c7be5;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.paypal-btn {
+    background: #003087;
+}
+
+.donate-button:hover {
+    background: #1a68d1;
+}
+
+.secure-note {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}

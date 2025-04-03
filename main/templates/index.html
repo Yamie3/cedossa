@@ -5,28 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Cedossa</title>
-<link rel="stylesheet" href="{% static 'css/styles.css' %}"></link>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Add additional CSS files here if needed -->
+    <!-- Example: <link rel="stylesheet" href="{% static 'css/responsive.css' %}"> -->
 </head>
 <body>
-    <script src="{% static 'js/script.js' %}"></script>
-    <header>
-        <nav>
-            <a href="{% url 'main:home' %}">Home</a>  <!-- Changed from '/home' -->
-            <a href="{% url 'main:about' %}">About</a>
-            <a href="{% url 'main:contact' %}">Contact</a>
-            <a href="{% url 'main:donate' %}">Donate</a>
+    <!-- Header Section -->
+    <header class="site-header">
+        <nav class="main-navigation">
+            <a href="{% url 'main:home' %}" class="nav-item">Home</a>
+            <a href="{% url 'main:about' %}" class="nav-item">About</a>
+            <a href="{% url 'main:contact' %}" class="nav-item">Contact</a>
+            <a href="{% url 'main:donate' %}" class="nav-item donate-btn">Donate</a>
         </nav>
     </header>
 
-    <section>
-        <h2></h2>
-        <p>Welcome to Centre for Down Syndrome, Sickle Cell and Autism</p>
-    </section>
+    <!-- Main Content Section -->
+    <main class="content-wrapper">
+        <section class="hero-section">
+            <h1 class="hero-title">Centre for Down Syndrome, Sickle Cell and Autism</h1>
+            <p class="hero-description">Providing support and resources for families and individuals</p>
+        </section>
+    </main>
 
-    <footer>
-        <p>Thank you for your support!</p>
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <p class="footer-text">Thank you for your support!</p>
+        <!-- Add additional footer content here -->
     </footer>
 
+    <!-- JavaScript Links -->
     <script src="{% static 'js/script.js' %}"></script>
+    <!-- Add additional JS files here if needed -->
+    <!-- Example: <script src="{% static 'js/animation.js' %}"></script> -->
+    
+    <!-- Initialize JS after DOM loads -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('CEDOSSA website loaded successfully');
+            // Your initialization code here
+        });
+    </script>
 </body>
 </html>

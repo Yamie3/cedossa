@@ -1,19 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Success</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
         <nav>
-            <a href="/">Home</a> | 
-            <a href="/about">About</a> | 
-            <a href="/contact">Contact</a> | 
-            <a href="/donate">Donate</a>
+            <a href="{% url 'main:home' %}">Home</a>  <!-- Changed from '/home' -->
+            <a href="{% url 'main:about' %}">About</a>
+            <a href="{% url 'main:contact' %}">Contact</a>
+            <a href="{% url 'main:donate' %}">Donate</a>
         </nav>
     </header>
     <header>
@@ -27,7 +26,5 @@
     <footer>
         <p>Thank you for your support!</p>
     </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

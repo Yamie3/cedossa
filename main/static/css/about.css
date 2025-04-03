@@ -1,0 +1,10 @@
+/* Shared Navigation Styles */
+.main-navigation .active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Contact Icons (if using Font Awesome) */
+.fas {
+    margin-right: 5px;
+}

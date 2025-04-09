@@ -1,81 +1,58 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - CEDOSSA</title>
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/contact.css' %}"> <!-- Page-specific CSS -->
-    <!-- Font Awesome for icons (optional) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <!-- Consistent Header -->
-    <header class="site-header">
-        <nav class="main-navigation">
-            <a href="{% url 'main:home' %}" class="nav-item">Home</a>
-            <a href="{% url 'main:about' %}" class="nav-item">About</a>
-            <a href="{% url 'main:contact' %}" class="nav-item active">Contact</a>
-            <a href="{% url 'main:donate' %}" class="nav-item donate-btn">Donate</a>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main class="contact-page">
-        <div class="contact-container">
-            <h1 class="page-title">Contact Form</h1>
-            
-            <!-- Messages -->
-            {% if messages %}
-            <div class="message-container">
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    <i class="fas fa-info-circle"></i> {{ message }}
-                </div>
-                {% endfor %}
+{% block title %}Contact Us - CEDOSSA{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Contact Us</h1>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                <i class="fas fa-info-circle"></i> {{ message }}
             </div>
-            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 
-            <!-- Contact Form -->
-            <form method="post" class="contact-form">
+    <!-- Contact Form -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form method="post" class="border p-4 shadow-sm bg-light rounded">
                 {% csrf_token %}
-                
-                <div class="form-group">
+
+                <div class="mb-3">
                     {{ form.name.label_tag }}
-                    {{ form.name }}
-                    <i class="fas fa-user form-icon"></i>
+                    {{ form.name|add_class:"form-control" }}
                 </div>
 
-                <div class="form-group">
+                <div class="mb-3">
                     {{ form.email.label_tag }}
-                    {{ form.email }}
-                    <i class="fas fa-envelope form-icon"></i>
+                    {{ form.email|add_class:"form-control" }}
                 </div>
 
-                <div class="form-group">
+                <div class="mb-3">
                     {{ form.message.label_tag }}
-                    {{ form.message }}
-                    <i class="fas fa-comment form-icon"></i>
+                    {{ form.message|add_class:"form-control" }}
                 </div>
 
-                <button type="submit" class="submit-btn">
+                <button type="submit" class="btn btn-primary">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
             </form>
-
-            <!-- Additional Contact Info -->
-            <div class="direct-contact">
-                <h3>Or reach us directly:</h3>
-                <p><i class="fas fa-phone"></i> +265 888 651 928</p>
-                <p><i class="fas fa-envelope"></i> info@cedossa.org</p>
-            </div>
         </div>
-    </main>
+    </div>
 
-    <!-- JavaScript -->
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/contact.js' %}"></script> <!-- Page-specific JS -->
-</body>
-</html>
+    <!-- Additional Contact Info -->
+    <div class="text-center mt-5">
+        <h3>Or reach us directly:</h3>
+        <p><i class="fas fa-phone"></i> +265 888 651 928</p>
+        <p><i class="fas fa-envelope"></i> info@cedossa.org</p>
+    </div>
+</div>
+{% endblock %}

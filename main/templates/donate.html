@@ -1,96 +1,50 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate to CEDOSSA - Support Our Cause</title>
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/donate.css' %}">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <!-- Consistent Header -->
-    <header class="site-header">
-        <nav class="main-navigation">
-            <a href="{% url 'main:home' %}" class="nav-item">Home</a>
-            <a href="{% url 'main:about' %}" class="nav-item">About</a>
-            <a href="{% url 'main:contact' %}" class="nav-item">Contact</a>
-            <a href="{% url 'main:donate' %}" class="nav-item active donate-nav-btn">Donate</a>
-        </nav>
-    </header>
+{% extends 'base.html' %}
 
-    <!-- Main Donation Content -->
-    <main class="donation-page">
-        <section class="donation-hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Support Our Cause</h1>
-                <p class="hero-text">Your generous donations help us continue our work in empowering individuals with Down syndrome, sickle cell, and autism.</p>
+{% block title %}Donate - CEDOSSA{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-5">Support Our Cause</h1>
+    <p class="lead">Your generous donations help us continue our work in empowering individuals with Down syndrome, sickle cell, and autism.</p>
+</div>
+
+<div class="row">
+    <!-- Bank Transfer -->
+    <div class="col-md-6">
+        <div class="card border-primary mb-4">
+            <div class="card-header bg-primary text-white">
+                <i class="fas fa-university"></i> Bank Transfer
             </div>
-        </section>
-
-        <div class="donation-methods">
-            <!-- Bank Transfer -->
-            <section class="donation-method bank-transfer">
-                <div class="method-icon">
-                    <i class="fas fa-university"></i>
-                </div>
-                <h2 class="method-title">Bank Transfer</h2>
-                <div class="method-details">
-                    <p><strong>Bank Name:</strong> Standard Bank of Malawi</p>
-                    <p><strong>Account Name:</strong> CEDOSSA LTD</p>
-                    <p><strong>Account Number:</strong> 9100007245065</p>
-                    <p><strong>SWIFT Code:</strong> [SBICMWMX]</p>
-                </div>
-            </section>
-
-            <!-- Mobile Money -->
-            <section class="donation-method mobile-money">
-                <div class="method-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h2 class="method-title">Mobile Money</h2>
-                <div class="method-details">
-                    <p><i class="fas fa-phone"></i> +265 888 651 928</p>
-                    <p><i class="fas fa-phone"></i> +265 999 680 899</p>
-                    <p><strong>Network:</strong> Airtel Money & TNM Mpamba</p>
-                </div>
-            </section>
-
-            <!-- PayPal Donation -->
-            <section class="donation-method paypal-donation">
-                <div class="method-icon">
-                    <i class="fab fa-paypal"></i>
-                </div>
-                <h2 class="method-title">Online Donation</h2>
-                <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal-form">
-                    <input type="hidden" name="business" value="your-paypal-email@example.com">
-                    <input type="hidden" name="item_name" value="CEDOSSA Donation">
-                    <input type="hidden" name="currency_code" value="USD">
-                    <button type="submit" class="donate-button paypal-btn">
-                        <i class="fab fa-paypal"></i> Donate via PayPal
-                    </button>
-                </form>
-                <p class="secure-note"><i class="fas fa-lock"></i> Secure online payment</p>
-            </section>
-        </div>
-    </main>
-
-     <!-- Footer -->
-     <footer class="site-footer">
-        <div class="footer-content">
-            <h3 class="footer-title">Contact CEDOSSA</h3>
-            <div class="contact-methods">
-                <p><i class="fas fa-envelope"></i> info@cedossa.org | cedosamw@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +265 888 651 928 | +265 999 680 899</p>
+            <div class="card-body">
+                <p><strong>Bank Name:</strong> Standard Bank of Malawi</p>
+                <p><strong>Account Name:</strong> CEDOSSA LTD</p>
+                <p><strong>Account Number:</strong> 9100007245065</p>
+                <p><strong>SWIFT Code:</strong> SBICMWMX</p>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- JavaScript -->
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/donate.js' %}"></script>
-</body>
-</html>
+    <!-- Mobile Money -->
+    <div class="col-md-6">
+        <div class="card border-success mb-4">
+            <div class="card-header bg-success text-white">
+                <i class="fas fa-mobile-alt"></i> TNM Mpamba
+            </div>
+            <div class="card-body">
+                <p><i class="fas fa-phone text-success"></i> +265 888 651 928</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="card border-success mb-4">
+        <div class="card-header bg-success text-white">
+            <i class="fas fa-mobile-alt"></i> Airtel Money
+        </div>
+        <div class="card-body">
+           <p><i class="fas fa-phone text-success"></i> +265 999 680 899</p>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

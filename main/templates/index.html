@@ -1,52 +1,13 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Cedossa</title>
-    
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Add additional CSS files here if needed -->
-    <!-- Example: <link rel="stylesheet" href="{% static 'css/responsive.css' %}"> -->
-</head>
-<body>
-    <!-- Header Section -->
-    <header class="site-header">
-        <nav class="main-navigation">
-            <a href="{% url 'main:home' %}" class="nav-item">Home</a>
-            <a href="{% url 'main:about' %}" class="nav-item">About</a>
-            <a href="{% url 'main:contact' %}" class="nav-item">Contact</a>
-            <a href="{% url 'main:donate' %}" class="nav-item donate-btn">Donate</a>
-        </nav>
-    </header>
 
-    <!-- Main Content Section -->
-    <main class="content-wrapper">
-        <section class="hero-section">
-            <h1 class="hero-title">Centre for Down Syndrome, Sickle Cell and Autism</h1>
-            <p class="hero-description">Providing support and resources for families and individuals</p>
-        </section>
-    </main>
+{% block title %}Welcome to CEDOSSA{% endblock %}
 
-    <!-- Footer Section -->
-    <footer class="site-footer">
-        <p class="footer-text">Thank you for your support!</p>
-        <!-- Add additional footer content here -->
-    </footer>
-
-    <!-- JavaScript Links -->
-    <script src="{% static 'js/script.js' %}"></script>
-    <!-- Add additional JS files here if needed -->
-    <!-- Example: <script src="{% static 'js/animation.js' %}"></script> -->
-    
-    <!-- Initialize JS after DOM loads -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('CEDOSSA website loaded successfully');
-            // Your initialization code here
-        });
-    </script>
-</body>
-</html>
+{% block content %}
+<section class="text-center">
+    <h1 class="display-5 fw-bold mb-3">Centre for Down Syndrome, Sickle Cell and Autism</h1>
+    <p class="lead mb-4">Providing support and resources for families and individuals in Malawi</p>
+    <a href="{% url 'main:about' %}" class="btn btn-outline-secondary me-2">Learn More</a>
+    <a href="{% url 'main:donate' %}" class="btn btn-success">Support Us</a>
+</section>
+{% endblock %}

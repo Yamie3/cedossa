@@ -25,22 +25,7 @@
         <div class="col-md-8">
             <form method="post" class="border p-4 shadow-sm bg-light rounded">
                 {% csrf_token %}
-
-                <div class="mb-3">
-                    {{ form.name.label_tag }}
-                    {{ form.name|add_class:"form-control" }}
-                </div>
-
-                <div class="mb-3">
-                    {{ form.email.label_tag }}
-                    {{ form.email|add_class:"form-control" }}
-                </div>
-
-                <div class="mb-3">
-                    {{ form.message.label_tag }}
-                    {{ form.message|add_class:"form-control" }}
-                </div>
-
+                {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>

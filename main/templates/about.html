@@ -1,67 +1,42 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - CEDOSSA</title>
-    <!-- CSS Links -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/about.css' %}"> <!-- Optional dedicated CSS -->
-</head>
-<body>
-    <!-- Header (consistent with index.html) -->
-    <header class="site-header">
-        <nav class="main-navigation">
-            <a href="{% url 'main:home' %}" class="nav-item">Home</a>
-            <a href="{% url 'main:about' %}" class="nav-item active">About</a> <!-- 'active' class for current page -->
-            <a href="{% url 'main:contact' %}" class="nav-item">Contact</a>
-            <a href="{% url 'main:donate' %}" class="nav-item donate-btn">Donate</a>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main class="about-page">
-        <section class="mission-section">
-            <div class="container">
-                <h2 class="section-title">Our Mission</h2>
-                <p class="section-text">To empower persons with Down Syndrome and Autism to thrive through advocacy, skills development, psychosocial counselling and trainings.</p>
-            </div>
-        </section>
+{% block title %}About Us - CEDOSSA{% endblock %}
 
-        <section class="vision-section">
-            <div class="container">
-                <h2 class="section-title">Our Vision</h2>
-                <p class="section-text">To ensure persons with Down Syndrome and autism are accepted and enjoying their human rights like anyone else in Malawi.</p>
-            </div>
-        </section>
+{% block content %}
+<div class="container my-5">
 
-        <section class="goals-section">
-            <div class="container">
-                <h2 class="section-title">Our Goals</h2>
-                <ul class="goals-list">
-                    <li>Reduce infant mortality rate</li>
-                    <li>Improve health and education services</li>
-                    <li>Increase awareness and advocacy</li>
-                    <li>Promote rights of people with Down Syndrome and Autism</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+    <!-- Mission Section -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Our Mission</h2>
+        <p class="lead text-center">
+            To empower persons with Down Syndrome and Autism to thrive through advocacy, skills development,
+            psychosocial counselling and trainings.
+        </p>
+    </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <h3 class="footer-title">Contact CEDOSSA</h3>
-            <div class="contact-methods">
-                <p><i class="fas fa-envelope"></i> info@cedossa.org | cedosamw@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +265 888 651 928 | +265 999 680 899</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Vision Section -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Our Vision</h2>
+        <p class="lead text-center">
+            To ensure persons with Down Syndrome and autism are accepted and enjoying their human rights
+            like anyone else in Malawi.
+        </p>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/about.js' %}"></script> <!-- Optional dedicated JS -->
-</body>
-</html>
+   <!-- Goals Section -->
+<section class="mb-5">
+    <h2 class="text-center mb-4">Our Goals</h2>
+    <div class="d-flex justify-content-center">
+        <ul class="list-group list-group-flush text-center" style="max-width: 600px;">
+            <li class="list-group-item">Reduce infant mortality rate</li>
+            <li class="list-group-item">Improve health and education services</li>
+            <li class="list-group-item">Increase awareness and advocacy</li>
+            <li class="list-group-item">Promote rights of people with Down Syndrome and Autism</li>
+        </ul>
+    </div>
+</section>
+
+
+</div>
+{% endblock %}

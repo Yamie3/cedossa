@@ -64,35 +64,35 @@ TEMPLATES = [
 ]
 
 # Database
-#DATABASES = {
-    #'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': BASE_DIR / 'db.sqlite3',
-        #'OPTIONS': {
-            #'timeout': 20,  # Optional: Increase timeout for busy databases
-        #}
-    #}
-#}
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cedossa',
-        'USER': 'postgres',
-        'PASSWORD': '1209Joyful!!',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        'OPTIONS': {
+            'timeout': 20,  # Optional: Increase timeout for busy databases
+        }
     }
 }
+
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'cedossa',
+        #'USER': 'postgres',
+        #'PASSWORD': '1209Joyful!!',
+        #'HOST': 'localhost',
+        #'PORT': '5432'
+    #}
+#}
 # Add these for better SQLite performance
-#if 'sqlite3' in DATABASES['default']['ENGINE']:
-    #from django.db.backends.signals import connection_created
-    #def set_sqlite_pragma(sender, connection, **kwargs):
-        #if connection.vendor == 'sqlite':
-            #cursor = connection.cursor()
-            #cursor.execute('PRAGMA journal_mode=WAL;')
-            #cursor.execute('PRAGMA synchronous=NORMAL;') 
-    #connection_created.connect(set_sqlite_pragma)
+if 'sqlite3' in DATABASES['default']['ENGINE']:
+    from django.db.backends.signals import connection_created
+    def set_sqlite_pragma(sender, connection, **kwargs):
+        if connection.vendor == 'sqlite':
+            cursor = connection.cursor()
+            cursor.execute('PRAGMA journal_mode=WAL;')
+            cursor.execute('PRAGMA synchronous=NORMAL;') 
+    connection_created.connect(set_sqlite_pragma)
 
 # Password Validation
 AUTH_PASSWORD_VALIDATORS = [

@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-fallback-key-for-dev-only')
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"]  # Consider limiting this in production
 CSRF_TRUSTED_ORIGINS = ['http://cedossa.onrender.com']
 
 # Application Definition
@@ -22,18 +22,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'main',
-    
-    # Local apps
-    #'main.apps.MainConfig',
-    
-    # Third-party
-    #'django_extensions',
-    #'crispy_forms',
-    #'crispy_bootstrap5',
 ]
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 MIDDLEWARE = [
-    #'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Enables static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -45,7 +38,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cedossa.urls'
 
-# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -57,11 +49,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #'cedossa.context_processors.site_info',
             ],
         },
     },
 ]
+
+WSGI_APPLICATION = 'cedossa.wsgi.application'
 
 # Database
 DATABASES = {
@@ -69,22 +62,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
         'OPTIONS': {
-            'timeout': 20,  # Optional: Increase timeout for busy databases
+            'timeout': 20,
         }
     }
 }
 
-#DATABASES = {
-    #'default': {
-        #'ENGINE': 'django.db.backends.postgresql',
-        #'NAME': 'cedossa',
-        #'USER': 'postgres',
-        #'PASSWORD': '1209Joyful!!',
-        #'HOST': 'localhost',
-        #'PORT': '5432'
-    #}
-#}
-# Add these for better SQLite performance
+# SQLite performance tweaks
 if 'sqlite3' in DATABASES['default']['ENGINE']:
     from django.db.backends.signals import connection_created
     def set_sqlite_pragma(sender, connection, **kwargs):
@@ -110,14 +93,13 @@ USE_L10N = True
 USE_TZ = True
 LANGUAGES = [
     ('en', _('English')),
-    # Add other languages as needed
 ]
 
 # Static & Media Files
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join (BASE_DIR, 'staticfiles')
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

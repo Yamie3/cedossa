@@ -1,13 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Welcome to CEDOSA{% endblock %}
+{% block title %}Home - CEDOSA{% endblock %}
 
 {% block content %}
-<section class="text-center">
-    <h1 class="display-5 fw-bold mb-3">Centre for Down Syndrome and Autism</h1>
-    <p class="lead mb-4">Providing support and resources for families and individuals in Malawi</p>
-    <a href="{% url 'main:about' %}" class="btn btn-outline-secondary me-2">Learn More</a>
-    <a href="{% url 'main:donate' %}" class="btn btn-success">Support Us</a>
+<!-- Hero Section -->
+<section class="bg-blue-600 text-white py-20 px-6 md:px-16 text-center">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Empowering Children with Down Syndrome</h1>
+        <p class="text-lg md:text-xl mb-8">Together, we create brighter futures for children across Malawi.</p>
+        <a href="{% url 'main:donate' %}" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition duration-300">Donate Now</a>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="py-16 bg-gray-100 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+        <div>
+            <h2 class="text-3xl font-bold mb-4 text-blue-700">Our Mission</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                CEDOSA is committed to supporting children with Down Syndrome through education,
+                awareness, and medical assistance. We believe every child deserves a life filled with hope, dignity,
+                and opportunity.
+            </p>
+        </div>
+        <div>
+            <img src="{% static 'images/children-smiling.jpg' %}" alt="Happy children" class="rounded-lg shadow-lg">
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-yellow-400 py-12 px-4 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Be the Change</h2>
+    <p class="mb-6 text-gray-800 text-lg">Your support helps provide care, support, and hope to children who need it most.</p>
+    <a href="{% url 'main:donate' %}" class="bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300">Support Our Work</a>
 </section>
 {% endblock %}

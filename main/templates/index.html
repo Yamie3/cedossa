@@ -7,37 +7,28 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #4F46E5 0%, #10B981 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .gradient-bg {
-            background: linear-gradient(90deg, #4F46E5 0%, #10B981 100%);
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .hero-pattern {
-            background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
+  body {
+    background: linear-gradient(-45deg, #e5e7eb, #f3f4f6, #f9fafb, #f3f4f6);
+    background-size: 400% 400%;
+    animation: gradient 12s ease infinite;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
 </head>
 <body class="font-sans antialiased text-gray-800">
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                        <img src="cedossa/static/images/cedossa.png" 
-                        alt="CEDOSSA Logo" 
-                        class="h-8 mr-2">
-                        <span class="text-2xl font-bold text-indigo-600">CEDOSSA</span>
-                </div>
+    {% load static %}
+            <div class="flex items-center">
+                <img src="{% static 'images/cedossa.png' %}" alt="CEDOSSA Logo" class="h-8 mr-2">
+                <span class="text-2xl font-bold text-indigo-600">CEDOSSA</span>
+            </div>
                 
                 <div class="hidden md:flex space-x-10">
                     <a href="#about" class="font-medium hover:text-indigo-600 transition">About Us</a>

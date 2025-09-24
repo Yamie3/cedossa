@@ -1,466 +1,298 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDOSSA - Supporting Children with Autism & Down Syndrome</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-  body {
-    background: linear-gradient(-45deg, #e5e7eb, #f3f4f6, #f9fafb, #f3f4f6);
-    background-size: 400% 400%;
-    animation: gradient 12s ease infinite;
-    min-height: 100vh;
-    margin: 0;
-  }
-
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEDOSSA - Autism & Down Syndrome Support</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="font-sans antialiased text-gray-800">
-    <!-- Navigation -->
-    {% load static %}
-            <div class="flex items-center">
-                <img src="{% static 'images/cedossa.png' %}" alt="CEDOSSA Logo" class="h-8 mr-2">
-                <span class="text-2xl font-bold text-indigo-600">CEDOSSA</span>
-            </div>
-                
-                <div class="hidden md:flex space-x-10">
-                    <a href="#about" class="font-medium hover:text-indigo-600 transition">About Us</a>
-                    <a href="#programs" class="font-medium hover:text-indigo-600 transition">Our Programs</a>
-                    <a href="#support" class="font-medium hover:text-indigo-600 transition">How to Help</a>
-                    <a href="#resources" class="font-medium hover:text-indigo-600 transition">Resources</a>
-                    <a href="#contact" class="font-medium hover:text-indigo-600 transition">Contact</a>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="#" class="px-4 py-2 font-medium hover:text-indigo-600 transition">Donate</a>
-                    <a href="#" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Volunteer</a>
-                </div>
-                
-                <button class="md:hidden focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Hero Section -->
-    <section class="hero-pattern bg-gray-900 bg-opacity-70 text-white">
-        <div class="container mx-auto px-6 py-24 md:py-32">
-            <div class="max-w-2xl">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    Supporting <span class="gradient-text">Children</span> with Autism & Down Syndrome
-                </h1>
-                <p class="text-xl text-gray-200 mb-8">
-                    CEDOSSA is committed to supporting children with Down Syndrome through education, awareness, and medical assistance. We believe every child deserves a life filled with hope, dignity, and opportunity.
-                </p>
-            </div>
-        </div>
-    </section>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-600">CEDOSSA</a>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6 font-medium">
+        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+        <li><a href="#programs" class="hover:text-blue-600">Programs</a></li>
+        <li><a href="#resources" class="hover:text-blue-600">Resources</a></li>
+        <li><a href="#impact" class="hover:text-blue-600">Impact</a></li>
+        <li><a href="#support" class="hover:text-blue-600">Support</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+      <!-- Mobile Button -->
+      <button id="mobile-menu-button" class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-white shadow-md md:hidden">
+      <ul class="flex flex-col space-y-4 px-6 py-4">
+        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+        <li><a href="#programs" class="hover:text-blue-600">Programs</a></li>
+        <li><a href="#resources" class="hover:text-blue-600">Resources</a></li>
+        <li><a href="#impact" class="hover:text-blue-600">Impact</a></li>
+        <li><a href="#support" class="hover:text-blue-600">Support</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- About Section -->
-<section id="about" class="container mx-auto px-6 py-16 md:py-24">
-    <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
-        <p class="max-w-2xl mx-auto text-lg text-gray-600">
-            CEDOSSA is dedicated to transforming lives and creating opportunities for persons with Down Syndrome and Autism in Malawi.
+  <!-- Hero Section -->
+  <section id="home" class="bg-blue-100 py-20">
+    <div class="container mx-auto flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-4xl font-bold text-blue-700 mb-6">
+          Empowering Children with Autism & Down Syndrome
+        </h1>
+        <p class="text-lg mb-6">
+          CEDOSSA is dedicated to creating brighter futures for children with Autism and Down Syndrome in Malawi through healthcare, education, and community support.
         </p>
+        <a href="#support" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">Get Involved</a>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <img src="{% static 'images/hero-autism-down.png' %}" alt="Children Support" class="rounded-2xl shadow-lg">
+      </div>
     </div>
+  </section>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Mission Card -->
-        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-bullseye text-2xl text-indigo-600"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-4 text-center">Our Mission</h3>
-            <p class="text-gray-600 text-center">
-                To empower persons with Down Syndrome and Autism to thrive through advocacy, skills development, psychosocial counselling and trainings.
-            </p>
+  <!-- Programs Section -->
+  <section id="programs" class="py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-700 mb-12">Our Programs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Autism Support -->
+        <div class="bg-white rounded-2xl shadow-md p-8">
+          <h3 class="text-xl font-bold mb-3 text-blue-600">Autism Support</h3>
+          <p class="text-gray-600 mb-4">
+            Early intervention, sensory activities, speech therapy, and inclusive education programs designed for children with autism.
+          </p>
+          <a href="#contact" class="text-blue-500 font-medium hover:underline">Learn More</a>
         </div>
 
-        <!-- Vision Card -->
-        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-eye text-2xl text-green-600"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-4 text-center">Our Vision</h3>
-            <p class="text-gray-600 text-center">
-                To ensure persons with Down Syndrome and Autism are accepted and enjoying their human rights like anyone else in Malawi.
-            </p>
+        <!-- Down Syndrome Programs -->
+        <div class="bg-white rounded-2xl shadow-md p-8">
+          <h3 class="text-xl font-bold mb-3 text-yellow-600">Down Syndrome Programs</h3>
+          <p class="text-gray-600 mb-4">
+            Specialized healthcare, developmental learning, and advocacy programs for children with Down Syndrome and their families.
+          </p>
+          <a href="#contact" class="text-yellow-500 font-medium hover:underline">Learn More</a>
         </div>
 
-        <!-- Goals Card -->
-        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-flag-checkered text-2xl text-blue-600"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-4 text-center">Our Goals</h3>
-            <ul class="text-gray-600 space-y-2 pl-5 list-disc">
-                <li>Reduce infant mortality rate</li>
-                <li>Improve health and education services</li>
-                <li>Increase awareness and advocacy</li>
-                <li>Promote rights of people with Down Syndrome and Autism</li>
-            </ul>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Additional About Content -->
-    <div class="mt-16 flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
-            <h3 class="text-2xl font-bold mb-6">Our Story</h3>
-            <p class="text-lg text-gray-600 mb-6">
-                Founded in 2021, Cedossa has been at the forefront of championing the rights and welfare of persons with Down Syndrome and Autism in Malawi. What began as a small initiative has grown into a movement creating real change.
-            </p>
-            <p class="text-lg text-gray-600 mb-8">
-                Through our programs and partnerships, we've impacted 1000+ lives and continue to expand our reach across the country.
-            </p>
-            <a href="#" class="inline-block px-6 py-2 border-2 border-indigo-600 text-indigo-600 font-medium rounded-lg hover:bg-indigo-600 hover:text-white transition">
-                Learn More About Our Work
-            </a>
+  <!-- Resources Section -->
+  <section id="resources" class="bg-gray-100 py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-700 mb-12">Resources</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="bg-white rounded-2xl shadow-md p-6">
+          <h3 class="text-lg font-bold mb-2">Autism Toolkit</h3>
+          <p class="text-gray-600">Guides for parents and teachers to support children with autism at home and school.</p>
         </div>
-        <div class="md:w-1/2">
-            <div class="bg-gray-100 rounded-xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1601924638867-3a6de6b7a500?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cedossa team with children" class="w-full h-auto">
-            </div>
+
+        <div class="bg-white rounded-2xl shadow-md p-6">
+          <h3 class="text-lg font-bold mb-2">Down Syndrome Care</h3>
+          <p class="text-gray-600">Healthcare tips, therapy exercises, and nutrition guidelines for children with Down Syndrome.</p>
         </div>
+
+        <div class="bg-white rounded-2xl shadow-md p-6">
+          <h3 class="text-lg font-bold mb-2">Community Support</h3>
+          <p class="text-gray-600">Family counseling, awareness programs, and advocacy resources for inclusive communities.</p>
+        </div>
+
+      </div>
     </div>
-</section>
+  </section>
 
-    <!-- Programs Section -->
-    <section id="programs" class="bg-gray-50 py-16 md:py-24">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Programs</h2>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600">
-                    We offer specialized programs designed to meet the unique needs of each child we serve.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Program 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <div class="h-48 bg-indigo-100 flex items-center justify-center">
-                        <i class="fas fa-school text-6xl text-indigo-600"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Specialized Education</h3>
-                        <p class="text-gray-600 mb-4">
-                            Individualized learning plans with trained special education teachers and therapists.
-                        </p>
-                        <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800 transition">
-                            Learn More <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Program 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <div class="h-48 bg-green-100 flex items-center justify-center">
-                        <i class="fas fa-hands-helping text-6xl text-green-600"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Therapy Services</h3>
-                        <p class="text-gray-600 mb-4">
-                            Occupational, speech, and behavioral therapy tailored to each child's needs.
-                        </p>
-                        <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800 transition">
-                            Learn More <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Program 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-home text-6xl text-blue-600"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Family Support</h3>
-                        <p class="text-gray-600 mb-4">
-                            Counseling, training, and resources for parents and siblings.
-                        </p>
-                        <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800 transition">
-                            Learn More <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Impact Section -->
+  <section id="impact" class="py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-700 mb-12">Our Impact</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    <!-- Impact Section -->
-    <section class="gradient-bg text-white py-16 md:py-24">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
-                <p class="max-w-2xl mx-auto text-lg text-indigo-100">
-                    Together, we're making a difference in the lives of children and families.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-filter backdrop-blur-sm">
-                    <div class="text-4xl font-bold mb-2">500+</div>
-                    <div class="text-lg">Children Supported</div>
-                </div>
-                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-filter backdrop-blur-sm">
-                    <div class="text-4xl font-bold mb-2">100+</div>
-                    <div class="text-lg">Families Helped</div>
-                </div>
-                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-filter backdrop-blur-sm">
-                    <div class="text-4xl font-bold mb-2">30+</div>
-                    <div class="text-lg">Trained Specialists</div>
-                </div>
-            </div>
+        <div class="bg-blue-50 rounded-2xl p-6 shadow">
+          <h3 class="text-4xl font-bold text-blue-600">200+</h3>
+          <p class="text-gray-600 mt-2">Children with Autism supported with therapy and education</p>
         </div>
-    </section>
 
-    <!-- Support Section -->
-    <section id="support" class="container mx-auto px-6 py-16 md:py-24">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">How You Can Help</h2>
-            <p class="max-w-2xl mx-auto text-lg text-gray-600">
-                Your support makes our work possible. Here's how you can get involved.
-            </p>
+        <div class="bg-yellow-50 rounded-2xl p-6 shadow">
+          <h3 class="text-4xl font-bold text-yellow-600">150+</h3>
+          <p class="text-gray-600 mt-2">Children with Down Syndrome receiving healthcare and learning support</p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-md text-center">
-                <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-hand-holding-heart text-3xl text-indigo-600"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Donate</h3>
-                <p class="text-gray-600 mb-4">
-                    Financial contributions help us expand our programs and reach more children.
-                </p>
-                <a href="#" class="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-                    Donate Now
-                </a>
-            </div>
-            
-            <div class="bg-white p-8 rounded-xl shadow-md text-center">
-                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-hands-helping text-3xl text-green-600"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Volunteer</h3>
-                <p class="text-gray-600 mb-4">
-                    Share your time and skills to make a direct impact in children's lives.
-                </p>
-                <a href="#" class="inline-block px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-                    Volunteer
-                </a>
-            </div>
-            
-            <div class="bg-white p-8 rounded-xl shadow-md text-center">
-                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-bullhorn text-3xl text-blue-600"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Spread Awareness</h3>
-                <p class="text-gray-600 mb-4">
-                    Help us educate others about autism and Down syndrome.
-                </p>
-                <a href="#" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                    Share Our Work
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="bg-gray-50 py-16 md:py-24">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600">
-                    Hear from the families we've supported.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Parent testimonial">
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Sarah Johnson</h4>
-                            <p class="text-gray-600">Mother of Michael (Age 7)</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">
-                        "CEDOSSA gave my son the tools to communicate his needs. For the first time, he's able to tell me when he's hungry or tired. This has transformed our family life."
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Parent testimonial">
-                        </div>
-                        <div>
-                            <h4 class="font-bold">David Martinez</h4>
-                            <p class="text-gray-600">Father of Emma (Age 5)</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">
-                        "The occupational therapy program helped our daughter develop fine motor skills she was struggling with. She can now hold a pencil and write her name - milestones we weren't sure she'd reach."
-                    </p>
-                </div>
-            </div>
+        <div class="bg-green-50 rounded-2xl p-6 shadow">
+          <h3 class="text-4xl font-bold text-green-600">50+</h3>
+          <p class="text-gray-600 mt-2">Schools trained in inclusive education</p>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container mx-auto px-6 py-16 md:py-24">
-        <div class="flex flex-col md:flex-row">
-            <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
-                <p class="text-lg text-gray-600 mb-6">
-                    We'd love to hear from you. Whether you're a parent seeking support, a potential volunteer, or a donor, our team is here to help.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-start">
-                        <div class="text-indigo-600 mr-4 mt-1">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Our Location</h4>
-                            <p class="text-gray-600">Area 47 *** Street, Lilongwe, Malawi</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="text-indigo-600 mr-4 mt-1">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Phone</h4>
-                            <p class="text-gray-600">+265 888 651 928</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="text-indigo-600 mr-4 mt-1">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Email</h4>
-                            <p class="text-gray-600">info@cedossa.org</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="md:w-1/2">
-                <form class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="mb-6">
-                        <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
-                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">
-                        Send Message
-                    </button>
-                </form>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Section -->
+  <section id="support" class="bg-blue-600 text-white py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Support Our Work</h2>
+      <p class="mb-6">Join us in making a difference for children with Autism and Down Syndrome.</p>
+      <div class="flex justify-center space-x-6">
+        <a href="#donate" class="px-6 py-3 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-100">Donate</a>
+        <a href="#volunteer" class="px-6 py-3 bg-yellow-400 text-gray-900 rounded-lg shadow hover:bg-yellow-300">Volunteer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-700 mb-12">What Families Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="bg-white rounded-2xl shadow-md p-8">
+          <p class="italic text-gray-700 mb-4">
+            "Thanks to CEDOSSA, my daughter with Down Syndrome now attends school with her peers."
+          </p>
+          <h4 class="font-bold text-blue-600">– Grace, Lilongwe</h4>
         </div>
-    </section>
 
-    <!-- Newsletter -->
-    <section class="bg-indigo-50 py-16">
-        <div class="container mx-auto px-6 max-w-4xl text-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">Stay Updated</h2>
-            <p class="text-gray-600 mb-8">
-                Subscribe to our newsletter to receive updates about our programs, events, and how you can help.
-            </p>
-            <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <button type="submit" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">
-                    Subscribe
-                </button>
-            </form>
+        <div class="bg-white rounded-2xl shadow-md p-8">
+          <p class="italic text-gray-700 mb-4">
+            "The autism support sessions have helped my son improve his communication and social skills."
+          </p>
+          <h4 class="font-bold text-yellow-600">– Peter, Blantyre</h4>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Cedosa</h3>
-                    <p class="text-gray-400 mb-4">
-                        Supporting children with autism and Down syndrome to reach their full potential.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Our Programs</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Get Involved</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Resources</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-4">Support</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Donate</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Volunteer</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Partner With Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Fundraising</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-4">Contact</h4>
-                    <address class="text-gray-400 not-italic">
-                        <p class="mb-2">Area 47 *** Street</p>
-                        <p class="mb-2">Lilongwe, Malawi</p>
-                        <p class="mb-2">Phone: +265 888 651 928</p>
-                        <p>Email: info@cedossa.org</p>
-                    </address>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Cedossa. All rights reserved. Registered NGO in Malawi.</p>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container mx-auto px-6 py-20">
+    <div class="flex flex-col md:flex-row">
+      <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          We'd love to hear from you. Whether you're a parent seeking support, a potential volunteer, or a donor, our team is here to help.
+        </p>
+        <div class="space-y-4">
+          <p><i class="fas fa-map-marker-alt text-indigo-600 mr-2"></i> Area 47 *** Street, Lilongwe, Malawi</p>
+          <p><i class="fas fa-phone-alt text-indigo-600 mr-2"></i> +265 888 651 928</p>
+          <p><i class="fas fa-envelope text-indigo-600 mr-2"></i> info@cedossa.org</p>
         </div>
-    </footer>
+      </div>
+      <div class="md:w-1/2">
+        <form class="bg-white p-8 rounded-xl shadow-md">
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">Your Name</label>
+            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">Email Address</label>
+            <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">Your Message</label>
+            <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"></textarea>
+          </div>
+          <button type="submit" class="w-full py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile menu toggle functionality would go here
-        document.addEventListener('DOMContentLoaded', function() {
-            // This would control the mobile menu toggle
+  <!-- Newsletter -->
+  <section class="bg-indigo-50 py-16">
+    <div class="container mx-auto px-6 max-w-4xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Stay Updated</h2>
+      <p class="text-gray-600 mb-8">Subscribe to our newsletter to receive updates about our programs, events, and ways you can help.</p>
+      <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+        <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500">
+        <button type="submit" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">CEDOSSA</h3>
+          <p class="text-gray-400 mb-4">
+            Supporting children with autism and Down Syndrome to reach their full potential.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="#programs" class="text-gray-400 hover:text-white">Our Programs</a></li>
+            <li><a href="#support" class="text-gray-400 hover:text-white">Get Involved</a></li>
+            <li><a href="#resources" class="text-gray-400 hover:text-white">Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Support</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white">Donate</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white">Volunteer</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white">Partner With Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Fundraising</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <p class="text-gray-400">Area 47 *** Street<br>Lilongwe, Malawi</p>
+          <p class="text-gray-400 mt-2">Phone: +265 888 651 928</p>
+          <p class="text-gray-400">Email: info@cedossa.org</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 CEDOSSA. All rights reserved. Registered NGO in Malawi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS for Mobile Menu -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+      const icon = btn.querySelector("i");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      });
+
+      document.querySelectorAll("#mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-times");
         });
-    </script>
+      });
+    });
+  </script>
+
 </body>
 </html>

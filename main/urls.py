@@ -10,10 +10,12 @@ app_name = 'main'  # Namespace for URLs
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('about/', views.about, name='about'),  # Must match view name
+    path('about/', views.about, name='about'),
     path('donate/', views.donate, name='donate'),
+    path('autism_support/', views.autism_support, name='autism_support'),
+    path('down_syndrome_support/', views.down_syndrome_support, name='down_syndrome_support'),
     path('contact/', views.contact, name='contact'),
-    path('contact/success/', views.contact_success, name='contact_success'),
+    path('contact-success/', views.contact_success, name='contact_success'),
 ]
 
 if settings.DEBUG:

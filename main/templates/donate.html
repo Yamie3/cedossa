@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEDOSSA - Donate</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="{% static 'images/cedossa.png' %}" alt="CEDOSSA Logo" class="h-10 mr-3">
+        <span class="text-2xl font-bold text-indigo-600">CEDOSSA</span>
+      </div>
+      <ul class="hidden md:flex space-x-6 font-medium">
+        <li><a href="{% url 'main:home' %}" class="hover:text-blue-600">Home</a></li>
+        <li><a href="{% url 'main:autism_support' %}" class="hover:text-blue-600">Autism Support</a></li>
+        <li><a href="{% url 'main:down_syndrome_support' %}" class="hover:text-blue-600">Down Syndrome</a></li>
+        <li><a href="{% url 'main:contact' %}" class="hover:text-blue-600">Contact</a></li>
+        <li><a href="{% url 'main:donate' %}" class="hover:text-blue-600">Donate</a></li>
+      </ul>
+      <button id="mobile-menu-button" class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white shadow-md md:hidden">
+      <ul class="flex flex-col space-y-4 px-6 py-4">
+        <li><a href="{% url 'main:home' %}" class="hover:text-blue-600">Home</a></li>
+        <li><a href="{% url 'main:autism_support' %}" class="hover:text-blue-600">Autism Support</a></li>
+        <li><a href="{% url 'main:down_syndrome_support' %}" class="hover:text-blue-600">Down Syndrome</a></li>
+        <li><a href="{% url 'main:contact' %}" class="hover:text-blue-600">Contact</a></li>
+        <li><a href="{% url 'main:donate' %}" class="hover:text-blue-600">Donate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-yellow-100 to-indigo-100 py-32">
+    <div class="container mx-auto text-center px-6">
+      <h1 class="text-5xl font-bold text-blue-700 mb-6">Support CEDOSSA</h1>
+      <p class="text-lg mb-8">
+        Your donation helps children with Autism and Down Syndrome in Malawi access healthcare, education, and inclusive community programs.
+      </p>
+      <a href="#donation-form" class="px-6 py-3 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition">
+        Donate Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Donation Options -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-3xl font-bold text-blue-700 mb-12">Choose Your Donation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
+          <h3 class="text-xl font-bold mb-3 text-indigo-600">One-Time Donation</h3>
+          <p class="text-gray-600 mb-4">Support a child or program with a single contribution of any amount.</p>
+          <span class="text-2xl font-bold text-blue-700 mb-4 block">$50+</span>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
+          <h3 class="text-xl font-bold mb-3 text-indigo-600">Monthly Donation</h3>
+          <p class="text-gray-600 mb-4">Make a recurring impact by supporting children and families every month.</p>
+          <span class="text-2xl font-bold text-blue-700 mb-4 block">$20/month+</span>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
+          <h3 class="text-xl font-bold mb-3 text-indigo-600">Sponsor a Child</h3>
+          <p class="text-gray-600 mb-4">Provide long-term support for a child’s healthcare, therapy, and education.</p>
+          <span class="text-2xl font-bold text-blue-700 mb-4 block">$100/month+</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Form -->
+  <section id="donation-form" class="py-20 bg-blue-50">
+    <div class="container mx-auto max-w-3xl px-6 bg-white rounded-2xl shadow-md p-8">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">Make a Donation</h2>
+      <form method="POST" action="{% url 'main:donate' %}" class="space-y-6">
+        {% csrf_token %}
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Full Name</label>
+          <input type="text" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Email Address</label>
+          <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Donation Amount</label>
+          <input type="number" name="amount" min="1" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Donation Type</label>
+          <select name="type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+            <option value="one_time">One-Time</option>
+            <option value="monthly">Monthly</option>
+            <option value="sponsor_child">Sponsor a Child</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 transition">
+          Donate Now
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; 2025 CEDOSSA. All rights reserved. Registered NGO in Malawi.</p>
+    </div>
+  </footer>
+
+  <!-- JS for Mobile Menu -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+      const icon = btn.querySelector("i");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      });
+
+      document.querySelectorAll("#mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-times");
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

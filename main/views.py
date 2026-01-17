@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
-
+from .models import Event
+from django.utils.timezone import now
 # Import your forms and models
 from .forms import ContactForm
 from .models import ContactMessage
@@ -127,3 +128,20 @@ def programs(request):
         'title': 'Our Programs',
         'programs': programs_list
     })
+def events(request):
+    upcoming_events = Event.objects.filter(
+        is_published=True,
+        date__gte=now().date()
+    )
+
+    past_events = Event.objects.filter(
+        is_published=True,
+        date__lt=now().date()
+    )
+
+    context = {
+        'upcoming_events': upcoming_events,
+        'past_events': past_events,
+        'title': 'Events'
+    }
+    return render(request, 'main/events.html', context)

@@ -17,6 +17,7 @@ urlpatterns = [
     path('our_programs/', views.programs, name='our_programs'),
     path('contact/', views.contact, name='contact'),
     path('contact-success/', views.contact_success, name='contact_success'),
+    path('events/', views.events, name='events'),
 ]
 
 if settings.DEBUG:

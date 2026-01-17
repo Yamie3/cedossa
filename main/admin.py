@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import ContactMessage
+from .models import Event
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
@@ -51,3 +52,9 @@ class ContactMessageAdmin(admin.ModelAdmin):
             [message.email],
             fail_silently=False,
         )
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date', 'location', 'is_published')
+    list_filter = ('is_published', 'date')
+    search_fields = ('title', 'location')
+    ordering = ('date',)

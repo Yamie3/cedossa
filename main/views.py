@@ -2,47 +2,81 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
 
-# Import your forms and models (adjust based on your app structure)
+# Import your forms and models
 from .forms import ContactForm
 from .models import ContactMessage
 
+# -------------------------
+# Homepage
+# -------------------------
 def home(request):
-    """Render homepage"""
-    return render(request, 'index.html', {'title': 'Home'})
+    """Render homepage with programs preview"""
+    programs_list = [
+        {
+            'title': 'Autism Support',
+            'description': 'Early intervention, sensory activities, speech therapy, and inclusive education programs for children with autism.',
+            'color': 'blue-600',
+            'url_name': 'autism_support'
+        },
+        {
+            'title': 'Down Syndrome Support',
+            'description': 'Specialized healthcare, developmental learning, and advocacy programs for children with Down Syndrome and their families.',
+            'color': 'yellow-600',
+            'url_name': 'down_syndrome_support'
+        },
+        {
+            'title': 'Inclusive Education Training',
+            'description': 'Training schools and teachers on inclusive education practices to accommodate children with special needs.',
+            'color': 'green-600',
+            'url_name': '#'
+        },
+        {
+            'title': 'Community Outreach',
+            'description': 'Awareness campaigns and family counseling programs to support children with disabilities and their communities.',
+            'color': 'purple-600',
+            'url_name': '#'
+        }
+    ]
 
+    return render(request, 'index.html', {
+        'title': 'Home',
+        'programs': programs_list
+    })
+
+# -------------------------
+# Static Pages
+# -------------------------
 def about(request):
-    """Render about page"""
     return render(request, 'about.html', {'title': 'About Us'})
 
 def donate(request):
-    """Render donation page"""
     return render(request, 'donate.html', {'title': 'Donate'})
 
 def autism_support(request):
-    """Render autism support page"""
     return render(request, 'autism_support.html', {'title': 'Autism Support'})
 
 def down_syndrome_support(request):
-    """Render Down syndrome support page"""
     return render(request, 'down_syndrome_support.html', {'title': 'Down Syndrome Support'})
 
+def resources(request):
+    return render(request, 'resources.html', {'title': 'Resources'})
+
+def volunteer(request):
+    return render(request, 'volunteer.html', {'title': 'Volunteer'})
+
+# -------------------------
+# Contact
+# -------------------------
 @require_http_methods(["GET", "POST"])
 def contact(request):
-    """
-    Handle contact form submissions
-    """
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             try:
-                # Save the form data to database
-                contact_message = form.save()
-                
+                form.save()
                 messages.success(request, 'Your message has been sent successfully! We will get back to you soon.')
-                return redirect('contact_success')
-                
-            except Exception as e:
-                # Log the error in production
+                return redirect('main:contact_success')
+            except Exception:
                 messages.error(request, 'Sorry, there was an error sending your message. Please try again.')
         else:
             messages.warning(request, 'Please correct the errors below.')
@@ -55,20 +89,41 @@ def contact(request):
     })
 
 def contact_success(request):
-    """Display success page after contact submission"""
-    return render(request, 'contact_success.html', {
-        'title': 'Message Received'
-    })
+    return render(request, 'contact_success.html', {'title': 'Message Received'})
 
-# Additional views you might need
+# -------------------------
+# Programs Page
+# -------------------------
 def programs(request):
-    """Render programs page"""
-    return render(request, 'programs.html', {'title': 'Our Programs'})
+    """Render programs page with dynamic program list"""
+    programs_list = [
+        {
+            'title': 'Autism Support',
+            'description': 'Early intervention, sensory activities, speech therapy, and inclusive education programs for children with autism.',
+            'color': 'blue-600',
+            'url_name': 'autism_support'
+        },
+        {
+            'title': 'Down Syndrome Support',
+            'description': 'Specialized healthcare, developmental learning, and advocacy programs for children with Down Syndrome and their families.',
+            'color': 'yellow-600',
+            'url_name': 'down_syndrome_support'
+        },
+        {
+            'title': 'Inclusive Education Training',
+            'description': 'Training schools and teachers on inclusive education practices to accommodate children with special needs.',
+            'color': 'green-600',
+            'url_name': '#'
+        },
+        {
+            'title': 'Community Outreach',
+            'description': 'Awareness campaigns and family counseling programs to support children with disabilities and their communities.',
+            'color': 'purple-600',
+            'url_name': '#'
+        }
+    ]
 
-def resources(request):
-    """Render resources page"""
-    return render(request, 'resources.html', {'title': 'Resources'})
-
-def volunteer(request):
-    """Render volunteer page"""
-    return render(request, 'volunteer.html', {'title': 'Volunteer'})
+    return render(request, 'our_programs.html', {
+        'title': 'Our Programs',
+        'programs': programs_list
+    })

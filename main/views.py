@@ -145,3 +145,7 @@ def events(request):
         'title': 'Events'
     }
     return render(request, 'main/events.html', context)
+def sickle_cell_support(request):
+    return render(request, 'main/sickle_cell_support.html', {
+        'title': 'Sickle Cell Support'
+    })

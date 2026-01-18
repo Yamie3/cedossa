@@ -19,31 +19,35 @@ def home(request):
     """Render homepage with programs and upcoming events preview"""
 
     programs_list = [
-        {
-            'title': 'Autism Support',
-            'description': 'Early intervention, sensory activities, speech therapy, and inclusive education programs for children with autism.',
-            'color': 'blue-600',
-            'url_name': 'autism_support'
-        },
-        {
-            'title': 'Down Syndrome Support',
-            'description': 'Specialized healthcare, developmental learning, and advocacy programs for children with Down Syndrome and their families.',
-            'color': 'yellow-600',
-            'url_name': 'down_syndrome_support'
-        },
-        {
-            'title': 'Inclusive Education Training',
-            'description': 'Training schools and teachers on inclusive education practices to accommodate children with special needs.',
-            'color': 'green-600',
-            'url_name': '#'
-        },
-        {
-            'title': 'Community Outreach',
-            'description': 'Awareness campaigns and family counseling programs to support children with disabilities and their communities.',
-            'color': 'purple-600',
-            'url_name': '#'
-        }
-    ]
+    {
+        'title': 'Down Syndrome Support',
+        'description': 'Specialized healthcare, developmental learning, and advocacy programs for children with Down Syndrome and their families.',
+        'color': 'yellow-600',
+        'url_name': 'down_syndrome_support',
+        'cta': 'Participate & Learn',
+    },
+    {
+        'title': 'Sickle Cell Support',
+        'description': 'Medical support, awareness, and community education for individuals and families affected by sickle cell disease.',
+        'color': 'green-600',
+        'url_name': 'sickle_cell_support',
+        'cta': 'Get Support',
+    },
+    {
+        'title': 'Autism Support',
+        'description': 'Early intervention, sensory activities, speech therapy, and inclusive education programs for children with autism.',
+        'color': 'blue-600',
+        'url_name': 'autism_support',
+        'cta': 'Get Support',
+    },
+    {
+        'title': 'Community Outreach',
+        'description': 'Awareness campaigns and family counselling programs to support children with disabilities and their communities.',
+        'color': 'purple-600',
+        'url_name': '#',
+        'cta': 'Join the Community',
+    },
+]
 
     # Fetch next 3 upcoming events
     upcoming_events = Event.objects.filter(

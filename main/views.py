@@ -7,11 +7,17 @@ from django.utils.timezone import now
 from .forms import ContactForm
 from .models import ContactMessage
 
+from django.shortcuts import render
+from django.utils.timezone import now
+from .models import Event
+
+
 # -------------------------
 # Homepage
 # -------------------------
 def home(request):
-    """Render homepage with programs preview"""
+    """Render homepage with programs and upcoming events preview"""
+
     programs_list = [
         {
             'title': 'Autism Support',
@@ -39,9 +45,16 @@ def home(request):
         }
     ]
 
+    # Fetch next 3 upcoming events
+    upcoming_events = Event.objects.filter(
+        is_published=True,
+        date__gte=now().date()
+    ).order_by('date')[:3]
+
     return render(request, 'index.html', {
         'title': 'Home',
-        'programs': programs_list
+        'programs': programs_list,
+        'upcoming_events': upcoming_events,
     })
 
 # -------------------------

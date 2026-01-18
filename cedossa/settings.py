@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-fallback-key-for-de
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 ALLOWED_HOSTS = ["*"]  # Consider limiting this in production
-CSRF_TRUSTED_ORIGINS = ['http://cedossa.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://cedossa.onrender.com']
 
 # Application Definition
 INSTALLED_APPS = [

@@ -52,9 +52,22 @@ class ContactMessageAdmin(admin.ModelAdmin):
             [message.email],
             fail_silently=False,
         )
+
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'date', 'location', 'is_published')
     list_filter = ('is_published', 'date')
     search_fields = ('title', 'location')
     ordering = ('date',)
+
+    fieldsets = (
+        ('Event nformation', {
+            'fields': ('title', 'description', 'image')
+        }),
+        ('Schedule & Location', {
+            'fields': ('date', 'start_time', 'location')
+        }),
+        ('Publishing', {
+            'fields': ('is_published',)
+        }),
+    )

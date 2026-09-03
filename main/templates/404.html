@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - CEDOSSA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="{% static 'images/cedossa.png' %}" alt="CEDOSSA Logo" class="h-10 mr-3">
+        <span class="text-2xl font-bold text-indigo-600">CEDOSSA</span>
+      </div>
+      <ul class="hidden md:flex space-x-6 font-medium">
+        <li><a href="{% url 'main:home' %}" class="hover:text-blue-600">Home</a></li>
+        <li><a href="{% url 'main:autism_support' %}" class="hover:text-blue-600">Autism Support</a></li>
+        <li><a href="{% url 'main:down_syndrome_support' %}" class="hover:text-blue-600">Down Syndrome</a></li>
+        <li><a href="{% url 'main:contact' %}" class="hover:text-blue-600">Contact</a></li>
+        <li><a href="{% url 'main:events' %}" class="hover:text-blue-600">Events</a></li>
+        <li><a href="{% url 'main:donate' %}" class="hover:text-blue-600">Donate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 404 Content -->
+  <section class="min-h-[70vh] flex items-center justify-center py-20 px-6">
+    <div class="text-center max-w-lg">
+      <p class="text-7xl font-extrabold text-blue-600 mb-4">404</p>
+      <h1 class="text-3xl font-bold text-gray-800 mb-4">Page Not Found</h1>
+      <p class="text-gray-600 mb-8">
+        Sorry, the page you are looking for doesn’t exist or has been moved.
+      </p>
+      <a href="{% url 'main:home' %}" class="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition">
+        <i class="fas fa-home mr-2"></i>Back to Home
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-14">
+    <div class="container mx-auto px-6 text-center max-w-3xl">
+      <p class="text-xs text-gray-500">
+        © 2026 CEDOSSA — Centre for Down Syndrome, Sickle Cell, and Autism<br>
+        Registered non-governmental organisation in Malawi.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

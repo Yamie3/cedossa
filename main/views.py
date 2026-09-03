@@ -163,6 +163,10 @@ def events(request):
     }
     return render(request, 'events.html', context)
 def sickle_cell_support(request):
-    return render(request, 'main/sickle_cell_support.html', {
+    return render(request, 'sickle_cell_support.html', {
         'title': 'Sickle Cell Support'
     })
+
+
+def page_not_found(request, exception):
+    return render(request, '404.html', {'title': 'Page Not Found'}, status=404)

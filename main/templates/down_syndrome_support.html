@@ -1,185 +1,74 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEDOSSA - Down Syndrome Programs </title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body class="bg-gray-50 text-gray-800">
+{% block title %}Down Syndrome Support{% endblock %}
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center">
-        <img src="{% static 'images/cedossa.png' %}" alt="CEDOSSA Logo" class="h-10 mr-3">
-        <span class="text-2xl font-bold text-indigo-600">CEDOSSA</span>
-      </div>
-      <ul class="hidden md:flex space-x-6 font-medium">
-        <li><a href="{% url 'main:home' %}" class="hover:text-blue-600">Home</a></li>
-        <li><a href="{% url 'main:autism_support' %}" class="hover:text-blue-600">Autism Support</a></li>
-        <li><a href="{% url 'main:contact' %}" class="hover:text-blue-600">Contact</a></li>
-        <li><a href="{% url 'main:events' %}" class="hover:text-blue-600">Events</a></li>
-        <li><a href="{% url 'main:donate' %}" class="hover:text-blue-600">Donate</a></li>
-      </ul>
-      <button id="mobile-menu-button" class="md:hidden text-2xl">
-        <i class="fas fa-bars"></i>
-      </button>
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-brand-lime text-white py-20 relative overflow-hidden">
+  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <span class="inline-block bg-white/20 text-white font-semibold text-sm px-4 py-1 rounded-full mb-5">Start Right</span>
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-5">Down Syndrome Support</h1>
+      <p class="text-white/90 text-lg mb-8">
+        Specialised healthcare, developmental learning and advocacy for children
+        with Down syndrome and their families.
+      </p>
+      <a href="{% url 'main:donate' %}" class="btn bg-white text-brand-navy hover:bg-gray-100">Support Our Programs <i class="fas fa-arrow-right"></i></a>
     </div>
-    <div id="mobile-menu" class="hidden bg-white shadow-md md:hidden">
-      <ul class="flex flex-col space-y-4 px-6 py-4">
-        <li><a href="{% url 'main:home' %}" class="hover:text-blue-600">Home</a></li>
-        <li><a href="{% url 'main:autism_support' %}" class="hover:text-blue-600">Autism Support</a></li>
-        <li><a href="{% url 'main:events' %}" class="hover:text-blue-600">Events</a></li>
-        <li><a href="{% url 'main:contact' %}" class="hover:text-blue-600">Contact</a></li>
-        <li><a href="{% url 'main:donate' %}" class="hover:text-blue-600">Donate</a></li>
-      </ul>
+    <div class="flex justify-center">
+      <div class="circle-img dot-navy"><img src="{% static 'images/home-img.png' %}" alt="Down syndrome support" class="h-64 w-64 md:h-72 md:w-72 bg-white/20"></div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="bg-yellow-50 py-32">
-    <div class="container mx-auto flex flex-col md:flex-row items-center md:justify-between px-6">
-      <div class="md:w-1/2 mb-10 md:mb-0">
-        <h1 class="text-5xl font-bold text-yellow-700 mb-6">
-          Down Syndrome Programs
-        </h1>
-        <p class="text-lg mb-8">
-          At CEDOSSA, we provide specialized healthcare, educational support, and advocacy programs for children with Down Syndrome and their families across Malawi.
-        </p>
-        <a href="{% url 'main:donate' %}" class="px-6 py-3 bg-yellow-600 text-white rounded-lg shadow hover:bg-yellow-700 transition">
-          Support Our Programs
-        </a>
-      </div>
-      <div class="md:w-1/2">
-        <!--img src="{% static 'images/down_syndrome_kids.png' %}" alt="Down Syndrome Programs" class="w-full rounded-2xl shadow-lg"-->
-      </div>
-    </div>
-  </section>
-
-  <!-- Program Details -->
-  <section class="py-20 bg-gray-50">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold text-yellow-700 mb-12">What We Offer</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
-          <h3 class="text-xl font-bold mb-3 text-yellow-600">Healthcare Support</h3>
-          <p class="text-gray-600">
-            Regular check-ups, therapy sessions, and nutritional guidance tailored for children with Down Syndrome.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
-          <h3 class="text-xl font-bold mb-3 text-yellow-600">Education & Learning</h3>
-          <p class="text-gray-600">
-            Inclusive learning programs, developmental exercises, and individualized education plans to help children reach their potential.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
-          <h3 class="text-xl font-bold mb-3 text-yellow-600">Family & Community Support</h3>
-          <p class="text-gray-600">
-            Counseling, awareness programs, and advocacy to empower families and create inclusive communities.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact Section -->
-  <section class="py-20 bg-yellow-100">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold text-yellow-700 mb-12">Our Impact</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <div class="bg-white rounded-2xl shadow-md p-8">
-          <h3 class="text-4xl font-bold text-yellow-600">150+</h3>
-          <p class="text-gray-600 mt-2">Children with Down Syndrome receiving care</p>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-md p-8">
-          <h3 class="text-4xl font-bold text-green-600">50+</h3>
-          <p class="text-gray-600 mt-2">Families supported through counseling and advocacy</p>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-md p-8">
-          <h3 class="text-4xl font-bold text-blue-600">20+</h3>
-          <p class="text-gray-600 mt-2">Schools trained in inclusive learning practices</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Call-to-Action Section -->
-  <section class="py-20 bg-yellow-600 text-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Join Our Mission</h2>
-      <p class="mb-6">Support children with Down Syndrome by donating or volunteering with CEDOSSA today.</p>
-      <div class="flex justify-center gap-4 flex-wrap">
-        <a href="{% url 'main:donate' %}" class="px-6 py-3 bg-white text-yellow-600 rounded-lg shadow hover:bg-gray-100 transition">Donate</a>
-        <a href="{% url 'main:contact' %}" class="px-6 py-3 bg-yellow-400 text-gray-900 rounded-lg shadow hover:bg-yellow-300 transition">Volunteer</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-14 mt-16">
-  <div class="container mx-auto px-6 text-center max-w-3xl">
-
-    <!-- Mission reminder -->
-    <p class="text-sm text-gray-300 mb-4 leading-relaxed">
-      CEDOSSA is a non-governmental organisation dedicated to supporting children
-      with Down syndrome, sickle cell disease, and autism through care, education,
-      advocacy, and community engagement.
-    </p>
-
-    <!-- Contact cue -->
-    <p class="text-sm text-gray-400 mb-6">
-      For partnerships, participation, or general enquiries, please reach out through
-      our contact page.
-    </p>
-
-    <!-- Divider -->
-    <div class="border-t border-gray-700 my-6"></div>
-
-    <!-- Legal / identity -->
-    <p class="text-xs text-gray-500">
-      © 2026 CEDOSSA — Centre for Down Syndrome, Sickle Cell, and Autism<br>
-      Registered non-governmental organisation in Malawi.
-    </p>
-
   </div>
-</footer>
+  <div class="absolute bottom-0 left-0 right-0 -mb-1">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-[50px] md:h-[80px]"><path fill="#ffffff" d="M0,50 C360,120 1080,-20 1440,50 L1440,100 L0,100 Z"></path></svg>
+  </div>
+</section>
 
+<!-- WHAT WE OFFER -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-navy mb-12">What We Offer</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div class="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-xl transition">
+        <div class="h-14 w-14 rounded-2xl bg-brand-lime/10 text-brand-lime flex items-center justify-center text-xl mb-5"><i class="fas fa-heart-pulse"></i></div>
+        <h3 class="text-xl font-display font-bold text-brand-navy mb-3">Specialised Healthcare</h3>
+        <p class="text-gray-600">Coordinated medical screening and follow-up care tailored to each child's needs.</p>
+      </div>
+      <div class="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-xl transition">
+        <div class="h-14 w-14 rounded-2xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl mb-5"><i class="fas fa-book-open-reader"></i></div>
+        <h3 class="text-xl font-display font-bold text-brand-navy mb-3">Developmental Learning</h3>
+        <p class="text-gray-600">Early learning and therapy that build communication, motor and life skills.</p>
+      </div>
+      <div class="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-xl transition">
+        <div class="h-14 w-14 rounded-2xl bg-brand-yellow/20 text-brand-yellow flex items-center justify-center text-xl mb-5"><i class="fas fa-bullhorn"></i></div>
+        <h3 class="text-xl font-display font-bold text-brand-navy mb-3">Advocacy &amp; Family Support</h3>
+        <p class="text-gray-600">Parent groups, counselling and advocacy so families never walk the journey alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- JS for Mobile Menu -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const btn = document.getElementById("mobile-menu-button");
-      const menu = document.getElementById("mobile-menu");
-      const icon = btn.querySelector("i");
+<!-- IMPACT -->
+<section class="bg-brand-navy text-white py-16">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+    <div><div class="text-5xl font-display font-bold text-brand-lime">300+</div><p class="text-white/70 mt-3">Children with Down syndrome supported</p></div>
+    <div><div class="text-5xl font-display font-bold text-brand-cyan">120+</div><p class="text-white/70 mt-3">Families reached with guidance and care</p></div>
+    <div><div class="text-5xl font-display font-bold text-brand-yellow">40+</div><p class="text-white/70 mt-3">Community awareness sessions held</p></div>
+  </div>
+</section>
 
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-        icon.classList.toggle("fa-bars");
-        icon.classList.toggle("fa-times");
-      });
+<!-- CTA -->
+<section class="py-16 bg-gray-50 text-center">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-display font-bold text-brand-navy mb-4">Stand With These Children</h2>
+    <p class="text-gray-600 max-w-xl mx-auto mb-8">Your support ensures children with Down syndrome get the healthcare, learning and advocacy they deserve.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="{% url 'main:donate' %}" class="btn btn-yellow">Donate</a>
+      <a href="{% url 'main:contact' %}" class="btn btn-navy">Volunteer</a>
+    </div>
+  </div>
+</section>
 
-      document.querySelectorAll("#mobile-menu a").forEach(link => {
-        link.addEventListener("click", () => {
-          menu.classList.add("hidden");
-          icon.classList.add("fa-bars");
-          icon.classList.remove("fa-times");
-        });
-      });
-    });
-  </script>
-
-</body>
-</html>
+{% endblock %}

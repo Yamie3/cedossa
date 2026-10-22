@@ -1,38 +1,74 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{ title }} - CEDOSSA</title>
-</head>
-<body>
-  <h1>Sickle Cell Support</h1>
-  <p>Content coming soon.</p>
-</body>
-<footer class="bg-gray-900 text-white py-14 mt-16">
-  <div class="container mx-auto px-6 text-center max-w-3xl">
+{% extends 'base.html' %}
+{% load static %}
 
-    <!-- Mission reminder -->
-    <p class="text-sm text-gray-300 mb-4 leading-relaxed">
-      CEDOSSA is a non-governmental organisation dedicated to supporting children
-      with Down syndrome, sickle cell disease, and autism through care, education,
-      advocacy, and community engagement.
-    </p>
+{% block title %}Sickle Cell Support{% endblock %}
 
-    <!-- Contact cue -->
-    <p class="text-sm text-gray-400 mb-6">
-      For partnerships, participation, or general enquiries, please reach out through
-      our contact page.
-    </p>
+{% block content %}
 
-    <!-- Divider -->
-    <div class="border-t border-gray-700 my-6"></div>
-
-    <!-- Legal / identity -->
-    <p class="text-xs text-gray-500">
-      © 2026 CEDOSSA — Centre for Down Syndrome, Sickle Cell, and Autism<br>
-      Registered non-governmental organisation in Malawi.
-    </p>
-
+<!-- HERO -->
+<section class="bg-brand-navy text-white py-20 relative overflow-hidden">
+  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <span class="inline-block bg-brand-yellow/90 text-brand-navy font-semibold text-sm px-4 py-1 rounded-full mb-5">Start Early</span>
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-5">Sickle Cell Support</h1>
+      <p class="text-white/80 text-lg mb-8">
+        Medical support, awareness and community education for children and families
+        affected by sickle cell disease.
+      </p>
+      <a href="{% url 'main:donate' %}" class="btn btn-cyan">Support Our Programs <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="flex justify-center">
+      <div class="circle-img dot-cyan"><img src="{% static 'images/humans.png' %}" alt="Sickle cell support" class="h-64 w-64 md:h-72 md:w-72 bg-white/10"></div>
+    </div>
   </div>
-</footer>
+  <div class="absolute bottom-0 left-0 right-0 -mb-1">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-[50px] md:h-[80px]"><path fill="#ffffff" d="M0,50 C360,120 1080,-20 1440,50 L1440,100 L0,100 Z"></path></svg>
+  </div>
+</section>
 
-</html>
+<!-- WHAT WE OFFER -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-navy mb-12">What We Offer</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div class="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-xl transition">
+        <div class="h-14 w-14 rounded-2xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl mb-5"><i class="fas fa-droplet"></i></div>
+        <h3 class="text-xl font-display font-bold text-brand-navy mb-3">Medical Support</h3>
+        <p class="text-gray-600">Help accessing screening, treatment and routine care that keeps children healthy.</p>
+      </div>
+      <div class="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-xl transition">
+        <div class="h-14 w-14 rounded-2xl bg-brand-lime/10 text-brand-lime flex items-center justify-center text-xl mb-5"><i class="fas fa-people-group"></i></div>
+        <h3 class="text-xl font-display font-bold text-brand-navy mb-3">Community Education</h3>
+        <p class="text-gray-600">Awareness and education that reduce stigma and help families manage the condition.</p>
+      </div>
+      <div class="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-xl transition">
+        <div class="h-14 w-14 rounded-2xl bg-brand-yellow/20 text-brand-yellow flex items-center justify-center text-xl mb-5"><i class="fas fa-hand-holding-medical"></i></div>
+        <h3 class="text-xl font-display font-bold text-brand-navy mb-3">Family Guidance</h3>
+        <p class="text-gray-600">Counselling and caregiver support so families feel equipped and never alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="bg-brand-cyan text-white py-16">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+    <div><div class="text-5xl font-display font-bold text-white">150+</div><p class="text-white/80 mt-3">Children living with sickle cell supported</p></div>
+    <div><div class="text-5xl font-display font-bold text-brand-navy">90+</div><p class="text-white/80 mt-3">Families reached with education and care</p></div>
+    <div><div class="text-5xl font-display font-bold text-brand-yellow">25+</div><p class="text-white/80 mt-3">Awareness campaigns across communities</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 bg-gray-50 text-center">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-display font-bold text-brand-navy mb-4">Help Us Reach More Children</h2>
+    <p class="text-gray-600 max-w-xl mx-auto mb-8">Together we can ensure children with sickle cell disease get the care and understanding they need.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="{% url 'main:donate' %}" class="btn btn-yellow">Donate</a>
+      <a href="{% url 'main:contact' %}" class="btn btn-navy">Volunteer</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

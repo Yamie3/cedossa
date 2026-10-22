@@ -12,20 +12,29 @@
     <div class="absolute inset-0 bg-brand-navy/70"></div>
   </div>
 
-  <div class="relative container mx-auto px-6 py-28 md:py-40 text-center">
-    <span class="inline-block bg-brand-yellow text-brand-navy font-semibold text-sm px-4 py-1 rounded-full mb-6">
-      Start Early · Start Right · Start Strong
-    </span>
-    <h1 class="text-4xl md:text-6xl font-display font-bold text-white leading-tight max-w-4xl mx-auto drop-shadow">
-      Every child deserves to be seen, supported, and thriving
-    </h1>
-    <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mt-6">
-      CEDOSSA supports children with Down syndrome, sickle cell disease, and autism across Malawi —
-      through healthcare, early intervention, education and community.
-    </p>
-    <div class="flex flex-wrap justify-center gap-4 mt-10">
-      <a href="{% url 'main:donate' %}" class="btn btn-cyan text-lg">Donate Now <i class="fas fa-arrow-right"></i></a>
-      <a href="{% url 'main:our_programs' %}" class="btn text-lg bg-white text-brand-navy hover:bg-gray-100">Our Programs</a>
+  <div class="relative container mx-auto px-6 pt-28 pb-36 md:pt-44 md:pb-48">
+    <div class="max-w-2xl">
+      <span class="inline-block bg-brand-yellow text-brand-navy font-semibold text-sm px-4 py-1 rounded-full mb-6">
+        Start Early · Start Right · Start Strong
+      </span>
+      <h1 class="text-5xl md:text-7xl font-display text-white drop-shadow-lg">
+        Supporting children to thrive!
+      </h1>
+      <p class="text-white/90 text-lg md:text-xl mt-6">
+        CEDOSSA walks with children living with Down syndrome, sickle cell disease and autism
+        across Malawi — and the families and communities around them.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-10">
+        <a href="{% url 'main:donate' %}" class="btn btn-cyan text-lg">Donate Now <i class="fas fa-arrow-right"></i></a>
+        <a href="{% url 'main:our_programs' %}" class="btn text-lg bg-white text-brand-navy hover:bg-gray-100">Our Programs</a>
+      </div>
+    </div>
+
+    <!-- carousel dots (decorative) -->
+    <div class="flex justify-center gap-2 mt-14">
+      <span class="h-3 w-3 rounded-full bg-white"></span>
+      <span class="h-3 w-3 rounded-full bg-white/40"></span>
+      <span class="h-3 w-3 rounded-full bg-brand-cyan"></span>
     </div>
   </div>
 
@@ -41,9 +50,14 @@
 <section class="bg-white py-16">
   <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
     <div class="flex justify-center">
-      <div class="h-56 w-56 md:h-72 md:w-72 rounded-full bg-brand-cyan text-white flex flex-col items-center justify-center text-center shadow-xl">
-        <span class="text-4xl md:text-5xl font-display font-bold">1 in 18</span>
-        <span class="mt-2 px-6 text-sm md:text-base">children in Malawi lives with a disability</span>
+      <div class="h-72 w-72 md:h-96 md:w-96 bg-brand-cyan text-brand-navy flex flex-col items-center justify-center text-center shadow-xl p-8"
+           style="border-radius: 47% 53% 48% 52% / 52% 47% 53% 48%;">
+        <span class="text-6xl md:text-7xl font-display leading-none">1 in 18</span>
+        <span class="mt-3 font-display text-xl md:text-2xl uppercase tracking-wide">children in Malawi</span>
+        <span class="text-sm md:text-base mt-1 font-semibold">live with a disability</span>
+        <div class="flex gap-1 mt-5 text-brand-navy/40 text-3xl md:text-4xl">
+          <i class="fas fa-child"></i><i class="fas fa-child-reaching"></i><i class="fas fa-child"></i><i class="fas fa-child-reaching"></i><i class="fas fa-child"></i>
+        </div>
       </div>
     </div>
     <div>

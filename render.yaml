@@ -6,7 +6,7 @@ services:
     # Deploy from main (now holds the correct flat project structure).
     branch: main
     buildCommand: "./build.sh"
-    startCommand: "waitress-serve --host=0.0.0.0 --port=$PORT cedossa.wsgi:application"
+    startCommand: "python manage.py migrate --no-input && waitress-serve --host=0.0.0.0 --port=$PORT cedossa.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.7"

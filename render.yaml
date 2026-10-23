@@ -20,6 +20,10 @@ services:
         fromDatabase:
           name: cedossa-db
           property: connectionString
+      # Set this in the Render dashboard with your Cloudinary account URL so
+      # uploaded flyers/images persist (Render's own disk is ephemeral).
+      - key: CLOUDINARY_URL
+        sync: false
 
 databases:
   - name: cedossa-db

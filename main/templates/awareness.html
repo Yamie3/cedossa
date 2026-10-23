@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Awareness{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-brand-navy text-white py-20 relative">
+  <div class="container mx-auto px-6 text-center">
+    <span class="inline-block bg-brand-yellow text-brand-navy font-semibold text-sm px-4 py-1 rounded-full mb-5">Awareness</span>
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">Awareness &amp; Campaigns</h1>
+    <p class="text-white/80 max-w-3xl mx-auto text-lg">
+      Flyers, posters and infographics raising awareness about Down syndrome, sickle cell disease
+      and autism. Share them to help build a more inclusive Malawi.
+    </p>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 -mb-1">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-[50px] md:h-[80px]"><path fill="#ffffff" d="M0,50 C360,120 1080,-20 1440,50 L1440,100 L0,100 Z"></path></svg>
+  </div>
+</section>
+
+<!-- FLYER GALLERY -->
+<section class="bg-white py-20">
+  <div class="container mx-auto px-6">
+    {% if flyers %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for flyer in flyers %}
+      <figure class="group bg-gray-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition">
+        <button type="button"
+                class="block w-full js-flyer-trigger"
+                data-src="{{ flyer.image.url }}"
+                data-title="{{ flyer.title|escape }}"
+                aria-label="View {{ flyer.title }}">
+          <img src="{{ flyer.image.url }}" alt="{{ flyer.title }}"
+               class="w-full h-auto object-cover group-hover:scale-[1.02] transition">
+        </button>
+        <figcaption class="p-6">
+          <h3 class="text-lg font-display font-bold text-brand-navy mb-1">{{ flyer.title }}</h3>
+          {% if flyer.caption %}<p class="text-gray-600 text-sm">{{ flyer.caption }}</p>{% endif %}
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center max-w-xl mx-auto py-16">
+      <div class="h-20 w-20 mx-auto rounded-full bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-3xl mb-6"><i class="fas fa-bullhorn"></i></div>
+      <h2 class="text-2xl font-display font-bold text-brand-navy mb-3">No flyers yet</h2>
+      <p class="text-gray-600">Awareness flyers will appear here as soon as they are published. Please check back soon.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="flyer-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true">
+  <button id="flyer-close" class="absolute top-5 right-6 text-white text-4xl leading-none hover:text-brand-yellow" aria-label="Close">&times;</button>
+  <figure class="max-w-5xl max-h-[90vh] flex flex-col items-center">
+    <img id="flyer-img" src="" alt="" class="max-h-[80vh] w-auto rounded-lg shadow-2xl">
+    <figcaption id="flyer-caption" class="text-white/90 font-medium mt-4 text-center"></figcaption>
+  </figure>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  (function () {
+    const box = document.getElementById('flyer-lightbox');
+    const img = document.getElementById('flyer-img');
+    const cap = document.getElementById('flyer-caption');
+    const close = document.getElementById('flyer-close');
+
+    function open(src, title) {
+      img.src = src; img.alt = title || ''; cap.textContent = title || '';
+      box.classList.remove('hidden'); box.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function hide() {
+      box.classList.add('hidden'); box.classList.remove('flex');
+      img.src = ''; document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.js-flyer-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        open(btn.dataset.src, btn.dataset.title);
+      });
+    });
+    close.addEventListener('click', hide);
+    box.addEventListener('click', function (e) { if (e.target === box) hide(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  })();
+</script>
+{% endblock %}

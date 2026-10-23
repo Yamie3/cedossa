@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.core.mail import send_mail
 from django.conf import settings
+from django.utils.html import format_html
 from .models import ContactMessage
 from .models import Event
+from .models import Flyer
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
@@ -71,3 +73,33 @@ class EventAdmin(admin.ModelAdmin):
             'fields': ('is_published',)
         }),
     )
+
+
+@admin.register(Flyer)
+class FlyerAdmin(admin.ModelAdmin):
+    list_display = ('title', 'preview', 'is_published', 'order', 'created_at')
+    list_editable = ('is_published', 'order')
+    list_filter = ('is_published', 'created_at')
+    search_fields = ('title', 'caption')
+    readonly_fields = ('preview_large', 'created_at')
+
+    fieldsets = (
+        ('Flyer', {
+            'fields': ('title', 'image', 'preview_large', 'caption')
+        }),
+        ('Publishing', {
+            'fields': ('is_published', 'order')
+        }),
+    )
+
+    def preview(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" style="height:40px;border-radius:4px;" />', obj.image.url)
+        return '—'
+    preview.short_description = 'Preview'
+
+    def preview_large(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" style="max-height:240px;max-width:100%;border-radius:8px;" />', obj.image.url)
+        return 'Save to see a preview.'
+    preview_large.short_description = 'Current image'

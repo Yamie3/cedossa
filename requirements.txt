@@ -17,6 +17,10 @@ psycopg2-binary==2.9.10
 psycopg2-pool==1.2
 dj-database-url==2.3.0
 
+# Media hosting (persistent uploads on Render via Cloudinary)
+cloudinary==1.41.0
+django-cloudinary-storage==0.3.0
+
 # Image handling (required by main.Event.image ImageField)
 Pillow==11.1.0
 

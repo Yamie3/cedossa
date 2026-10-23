@@ -19,6 +19,7 @@ urlpatterns = [
     path('contact-success/', views.contact_success, name='contact_success'),
     path('events/', views.events, name='events'),
     path('sickle-cell/', views.sickle_cell_support, name='sickle_cell_support'),
+    path('awareness/', views.awareness, name='awareness'),
 ]
 
 if settings.DEBUG:

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
-from .models import Event
+from .models import Event, Flyer
 from django.utils.timezone import now
 # Import your forms and models
 from .forms import ContactForm
@@ -165,6 +165,14 @@ def events(request):
 def sickle_cell_support(request):
     return render(request, 'sickle_cell_support.html', {
         'title': 'Sickle Cell Support'
+    })
+
+def awareness(request):
+    """Render the awareness page with published flyers."""
+    flyers = Flyer.objects.filter(is_published=True)
+    return render(request, 'awareness.html', {
+        'title': 'Awareness',
+        'flyers': flyers,
     })
 
 

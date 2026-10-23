@@ -97,3 +97,36 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Flyer(models.Model):
+    """An awareness flyer / poster that staff can upload from the admin."""
+    title = models.CharField(
+        _('Title'), max_length=200,
+        help_text=_("Shown under the flyer, e.g. 'Down Syndrome Awareness'")
+    )
+    image = models.ImageField(
+        _('Flyer image'), upload_to='flyers/',
+        help_text=_("Upload the flyer image (JPG or PNG).")
+    )
+    caption = models.TextField(
+        _('Caption'), blank=True,
+        help_text=_("Optional short description shown with the flyer.")
+    )
+    is_published = models.BooleanField(
+        _('Published'), default=True,
+        help_text=_("Untick to hide this flyer from the website.")
+    )
+    order = models.PositiveIntegerField(
+        _('Display order'), default=0,
+        help_text=_("Lower numbers appear first.")
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _('Flyer')
+        verbose_name_plural = _('Flyers')
+        ordering = ['order', '-created_at']
+
+    def __str__(self):
+        return self.title

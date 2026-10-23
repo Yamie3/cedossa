@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: cedossa
+    runtime: python
+    plan: free
+    # Deploy from the branch that holds the current site. Change this to
+    # whichever branch you push to Render (e.g. "main") if you merge there.
+    branch: cursor/setup-dev-environment-ecec
+    buildCommand: "./build.sh"
+    startCommand: "waitress-serve --host=0.0.0.0 --port=$PORT cedossa.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "cedossa.onrender.com,.onrender.com"

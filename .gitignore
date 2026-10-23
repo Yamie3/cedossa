@@ -14,7 +14,10 @@ db.sqlite3-shm
 media/
 
 # Node
-node_modules/.cache/
+node_modules/
+
+# Django collected static (regenerated on build)
+staticfiles/
 
 # Environment
 .env

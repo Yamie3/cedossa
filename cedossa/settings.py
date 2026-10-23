@@ -99,6 +99,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Serve static files via Django's finders too, so assets still resolve even if
+# `collectstatic` did not run during the build (keeps images working on Render).
+WHITENOISE_USE_FINDERS = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

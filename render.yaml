@@ -16,3 +16,13 @@ services:
         generateValue: true
       - key: DJANGO_ALLOWED_HOSTS
         value: "cedossa.onrender.com,.onrender.com"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cedossa-db
+          property: connectionString
+
+databases:
+  - name: cedossa-db
+    plan: free
+    databaseName: cedossa
+    user: cedossa

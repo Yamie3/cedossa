@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import dj_database_url
 from django.utils.translation import gettext_lazy as _
 
 # Build paths
@@ -57,14 +58,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cedossa.wsgi.application'
 
 # Database
+# Uses DATABASE_URL when set (e.g. Render Postgres); falls back to local SQLite.
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'OPTIONS': {
-            'timeout': 20,
-        }
-    }
+    'default': dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600,
+    )
 }
 
 # SQLite performance tweaks

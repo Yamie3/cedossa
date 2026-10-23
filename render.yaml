@@ -3,9 +3,8 @@ services:
     name: cedossa
     runtime: python
     plan: free
-    # Deploy from the branch that holds the current site. Change this to
-    # whichever branch you push to Render (e.g. "main") if you merge there.
-    branch: cursor/setup-dev-environment-ecec
+    # Deploy from main (now holds the correct flat project structure).
+    branch: main
     buildCommand: "./build.sh"
     startCommand: "waitress-serve --host=0.0.0.0 --port=$PORT cedossa.wsgi:application"
     envVars:

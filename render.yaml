@@ -24,6 +24,13 @@ services:
       # uploaded flyers/images persist (Render's own disk is ephemeral).
       - key: CLOUDINARY_URL
         sync: false
+      # Admin user created automatically on deploy (set these in the dashboard).
+      - key: DJANGO_SUPERUSER_USERNAME
+        sync: false
+      - key: DJANGO_SUPERUSER_EMAIL
+        sync: false
+      - key: DJANGO_SUPERUSER_PASSWORD
+        sync: false
 
 databases:
   - name: cedossa-db

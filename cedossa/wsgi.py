@@ -13,5 +13,8 @@ if os.getenv('RUN_MIGRATIONS_ON_STARTUP', 'True') == 'True':
     try:
         from django.core.management import call_command
         call_command('migrate', interactive=False, verbosity=0)
-    except Exception as exc:  # never let a migration hiccup take the whole site down
-        print(f"[startup] migrate skipped/failed: {exc}", file=sys.stderr)
+        # Create the admin user (from env vars) and seed starter content. Both
+        # steps are idempotent and no-op when their env vars are absent.
+        call_command('bootstrap_site')
+    except Exception as exc:  # never let a startup task take the whole site down
+        print(f"[startup] migrate/bootstrap skipped/failed: {exc}", file=sys.stderr)

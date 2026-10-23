@@ -50,6 +50,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cedossa.context_processors.site_info',
             ],
         },
     },
@@ -129,6 +130,10 @@ else:
 # Custom Settings
 SITE_NAME = "Cedossa"
 SITE_DOMAIN = "cedossa.org"
+
+# Public Facebook page URL (e.g. https://www.facebook.com/YourPage). When set,
+# the live page feed is embedded on the Awareness page and linked in the footer.
+FACEBOOK_PAGE_URL = os.getenv('FACEBOOK_PAGE_URL', '')
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
